@@ -6,7 +6,7 @@
 
 Срок выполнения задания:
 
-**по 12.05.24** ![Relative date](https://img.shields.io/date/1715547600)
+**по 26.05.24** ![Relative date](https://img.shields.io/date/1716757200)
 
 
 
@@ -20,10 +20,47 @@
 
 ## Задание №2
 
-Добавить в проект поддержку **jUnit** и поместить в соответствующий исходный файл тесты для покрытия всех методов класса **Sqrt**. провести анализ покрытия средствами **Intellij Idea**.
+Добавить в проект модульные тесты, покрывающие основной функционал классов и методов. В этой работе упор делается не на качество самих тестов, а на их количество и процент покрытия исходного кода.
+
+В **pom.xml** поместить зависимость пакета для генерации отчета по покрытию:
+
+```
+<build>
+        <plugins>
+            <!-- Code Coverage report generation -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.7.9</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>generate-code-coverage-report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+```
+После запуска тестов найти в разделе **target** проекта ссылку на отчет (`target/site/jacoco/index.html`) и открыть его в браузере.
+
+![](./images/2.png)
+
+
+В данной работе необходимо добиться покрытия минимум **60%** исходного кода.
+Скриншот отчета сохранить в файле `report/coverage.png` 
 
 ## Задание №3
 
-Загрузить проект на **GitHub** и убедиться в работоспособности проектами через сценарии **GH Actions**.
+Загрузить проект на **GitHub** и убедиться в работоспособности проекта через сценарии **GH Actions**. 
 
 
